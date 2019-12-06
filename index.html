@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Product List</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Page Content goes here -->
+        <h3 class="center-align">My Product List</h3>
+        <div class="center-align"><i class="material-icons large">shopping_cart</i></div>
+        <input type="text" name="filterProduct" id="filterProduct" placeholder="Product Name" />
+        <ol class="collection" id="products">
+            <li class="collection-item">Soap</li>
+            <li class="collection-item">Tooth paste</li>
+            <li class="collection-item">Shaving cream</li>
+            <li class="collection-item">Shampoo</li>
+            <li class="collection-item">Talcum Powder</li>
+            <li class="collection-item">Washing Powder</li>
+            <li class="collection-item">Washing Liquid</li>
+            <li class="collection-item">Perfumes</li>
+            <li class="collection-item">BAGS</li>
+            <li class="collection-item">BEVERAGES</li>
+        </ol>
+    </div>
+    <script type="text/javascript">
+        let filterProduct = document.getElementById('filterProduct');
+        filterProduct.addEventListener('keyup', filterProducts);
+
+        function filterProducts() {
+            let filterProduct = document.getElementById('filterProduct').value.toLowerCase();
+
+            let products = document.getElementById('products');
+
+            let productList = products.querySelectorAll('li.collection-item');
+
+            for (let i = 0; i < productList.length; i++) {
+                if (productList[i].innerHTML.toLowerCase().indexOf(filterProduct) < 0) {
+                    productList[i].style.display = 'none';
+                }
+                else {
+                    productList[i].style.display = '';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
